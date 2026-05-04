@@ -89,7 +89,8 @@ np.random.seed(10) # make random values predictable
 
 ## Selective execution and visualization
 exec_data = []
-exec_detection = []
+exec_detection = ['detect_objects','validate_object_labels',
+                 'measure_detection_performance']
 
  #'bev_from_pcl', 'detect_objects', 'validate_object_labels', 'measure_detection_performance'] # options are 'bev_from_pcl', 'detect_objects', 'validate_object_labels', 'measure_detection_performance'; options not in the list will be loaded from file
 exec_tracking = ['perform_tracking'] # options are 'perform_tracking'
