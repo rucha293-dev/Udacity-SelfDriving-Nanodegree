@@ -150,18 +150,9 @@ In this project, some of these challenges were observed as missed detections, as
 </pre>
 ---
 
-## Conclusion
 
-.
-├── data/
-├── student/
-│ ├── filter.py
-│ ├── association.py
-│ ├── trackmanagement.py
-│ └── measurements.py
-├── misc/
-├── results/
-└── README.md
+
+
 
 ---
 
