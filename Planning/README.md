@@ -8,7 +8,6 @@ This project implements a simplified autonomous driving stack in the CARLA simul
 - Behavior Planning
 - Motion Planning
 - Velocity Planning
-- PID Vehicle Control
 - Collision Checking
 
 The system generates safe and smooth trajectories for autonomous driving.
