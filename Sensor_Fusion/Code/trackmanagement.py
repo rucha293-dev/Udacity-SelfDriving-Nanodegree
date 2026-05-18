@@ -127,7 +127,7 @@ class Trackmanagement:
             if meas_list:
                 if meas_list[0].sensor.in_fov(track.x):
                     # Track was in FOV but got no measurement → lower score
-                    track.score -= 1. / params.window
+                    track.score = max(track.score - 1. / params.window, 0.0)
 
         # delete tracks that are too uncertain or have too low a score
         for track in self.track_list[:]:  # iterate over a copy so deletion is safe
