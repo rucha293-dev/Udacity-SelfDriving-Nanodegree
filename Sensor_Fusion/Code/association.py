@@ -78,7 +78,7 @@ class Association:
         A = self.association_matrix
 
         # if no valid association exists, return NaN
-        if np.min(A) == np.inf:
+        if A.size == 0 or np.min(A) == np.inf:
             return np.nan, np.nan
 
         # find indices of the minimum Mahalanobis distance
