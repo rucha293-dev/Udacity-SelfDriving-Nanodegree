@@ -52,15 +52,15 @@ constexpr double SIGMA_T = 0.5;
 
 // This would be the filtered jerk over one sec
 constexpr double CONFORT_MAX_LAT_JERK = 0.9;               // m/s3
-constexpr double CONFORT_MAX_LON_JERK = 1.5;               // m/s3
+//constexpr double CONFORT_MAX_LON_JERK = 1.5;               // m/s3
 constexpr double CONFORT_ACCUM_LON_JERK_IN_ONE_SEC = 3.0;  // m/s3
-constexpr double CONFORT_ACCUM_LAT_JERK_IN_ONE_SEC = 2.0;  // m/s3
+//constexpr double CONFORT_ACCUM_LAT_JERK_IN_ONE_SEC = 2.0;  // m/s3
 
 constexpr double CONFORT_ACCUM_LON_ACC_IN_ONE_SEC = 1.0;  // m/s2
-constexpr double CONFORT_ACCUM_LAT_ACC_IN_ONE_SEC = 0.6;  // m/s2
+//constexpr double CONFORT_ACCUM_LAT_ACC_IN_ONE_SEC = 0.6;  // m/s2
 
 constexpr double CONFORT_MAX_LON_ACCEL = 3.0;  // m/s2
-constexpr double CONFORT_MAX_LAT_ACCEL = 1.0;  // m/s2
+//constexpr double CONFORT_MAX_LAT_ACCEL = 1.0;  // m/s2
 
 constexpr double MIN_MANEUVER_TIME = dt * 10;  // min steps
 constexpr double MAX_MANEUVER_TIME = dt * 75;  // max steps
