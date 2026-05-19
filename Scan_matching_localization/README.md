@@ -56,7 +56,83 @@
 If you encounter core dump on start up, just rerun and try again. Crash doesn't happen more than a couple of times. 
 
 
+# Point Cloud Processing
 
-Here is a glimpse of the running project.
+## Voxel Grid Filtering
 
-![a glimpse of the running project](../../assets/L7_Project.png)
+The raw LiDAR scan is filtered to reduce noise and computational load.
+
+### Purpose
+- Downsample point clouds
+- Improve NDT performance
+- Reduce runtime cost
+
+```cpp
+pcl::VoxelGrid<PointT> vg;
+vg.setLeafSize(0.7f,0.7f,0.7f);
+```
+
+---
+
+# NDT Localization
+
+The filtered LiDAR scan is aligned against a prebuilt map using:
+
+\[
+T^* = \arg\max_T p(\text{Scan} \mid \text{Map})
+\]
+
+The algorithm estimates the transformation that best aligns the current scan with the reference map.
+
+## NDT Parameters
+
+```cpp
+ndt.setResolution(1.0);
+ndt.setStepSize(0.3);
+ndt.setTransformationEpsilon(0.0001);
+ndt.setMaximumIterations(50);
+```
+
+---
+
+# Pose Estimation
+
+The estimated transformation matrix is used to compute:
+
+- Vehicle X position
+- Vehicle Y position
+- Vehicle yaw angle
+
+```cpp
+pose.position.x = transformation(0,3);
+pose.position.y = transformation(1,3);
+
+pose.rotation.yaw =
+    atan2(transformation(1,0),
+           transformation(0,0));
+```
+
+---
+
+# Fitness Score Rejection
+
+Bad alignments are rejected using the NDT fitness score.
+
+```cpp
+if(ndt.hasConverged() &&
+   ndt.getFitnessScore() < 1.5)
+```
+
+This prevents unstable localization updates.
+
+---
+
+# Drift Reset Logic
+
+If localization error becomes too large, the pose estimate is reset.
+
+```cpp
+if(poseError > 5.0)
+```
+
+This helps recover from divergence.
