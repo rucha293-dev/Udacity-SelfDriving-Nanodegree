@@ -192,7 +192,7 @@ class World(object):
                 traffic_light = self.player.get_traffic_light()
                 _tl_state = str(traffic_light.get_state())
             cur_junction_id = waypoint.get_junction().id
-            if (cur_junction_id == _prev_junction_id or cur_junction_id in not_junction or _tl_state == 'Green'):
+            if (cur_junction_id == _prev_junction_id or cur_junction_id in not_junction or _tl_state is 'Green'):
                 is_goal_junction = False;
             else:
                 _prev_junction_id = cur_junction_id
@@ -448,7 +448,7 @@ class HUD(object):
             behavior = 'STOPPED'
         self._info_text += ['Behavior: '+behavior]
         self._info_text += ['Prev Junction: '+str(_prev_junction_id)]
-        if _tl_state != 'none':
+        if _tl_state is not 'none':
             self._info_text += ['TL State: '+_tl_state]
         self._info_text += ['num waypoints: '+str(len(way_points))]
         num_spirals = len(spirals_x)
