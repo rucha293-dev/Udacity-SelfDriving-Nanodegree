@@ -1,3 +1,8 @@
+/**********************************************
+ * Self-Driving Car Nano-degree - Udacity
+ *  Created on: December 11, 2020
+ *      Author: Mathilde Badoual
+ **********************************************/
 
 #include "pid_controller.h"
 #include <iostream>
@@ -17,19 +22,17 @@ void PID::Init(double Kpi, double Kii, double Kdi, double output_lim_maxi, doubl
     p_error = 0.0;
     i_error = 0.0;
     d_error = 0.0;
-    previous_cte = 0.0;
-    delta_time = 0.0;
+    delta_time = 1.0;
 }
 
 void PID::UpdateError(double cte) {
-    if (delta_time > 0.0001) {
-        d_error = (cte - previous_cte) / delta_time;
+    if (delta_time > 0.0) {
+        d_error = (cte - p_error) / delta_time;
     } else {
         d_error = 0.0;
     }
     i_error += cte * delta_time;
     p_error = cte;
-    previous_cte = cte;
 }
 
 double PID::TotalError() {
