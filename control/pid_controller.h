@@ -1,8 +1,15 @@
+/**********************************************
+ * Self-Driving Car Nano-degree - Udacity
+ *  Created on: December 11, 2020
+ *      Author: Mathilde Badoual
+ **********************************************/
+
 #ifndef PID_CONTROLLER_H
 #define PID_CONTROLLER_H
 
 class PID {
 public:
+
     double p_error;
     double i_error;
     double d_error;
@@ -15,7 +22,6 @@ public:
     double output_lim_min;
 
     double delta_time;
-    double previous_cte;
 
     PID();
     virtual ~PID();
@@ -25,4 +31,4 @@ public:
     double UpdateDeltaTime(double new_delta_time);
 };
 
-#endif
+#endif //PID_CONTROLLER_H
