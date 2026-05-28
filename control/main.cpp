@@ -216,7 +216,7 @@ int main ()
 
   // initialize pid steer
   PID pid_steer = PID();
-  pid_steer.Init(0.3, 0.001, 0.3, 0.4, -0.4);
+  pid_steer.Init(1.0, 0.001, 0.5, 1.2, -1.2);
 
   // initialize pid throttle
   PID pid_throttle = PID();
@@ -300,13 +300,22 @@ int main ()
                   closest_idx = j;
               }
           }
-          int lookahead = std::min(closest_idx + 8, (int)x_points.size() - 1);
+          int lookahead = std::min(closest_idx + 12, (int)x_points.size() - 1);
 
-          // Use waypoint heading as the desired direction - this is the road center heading
-          // and is unbiased unlike trajectory points which can be offset for obstacle avoidance
-          error_steer = waypoint_t - yaw;
-          while (error_steer >  M_PI) error_steer -= 2.0 * M_PI;
-          while (error_steer < -M_PI) error_steer += 2.0 * M_PI;
+          // Trajectory heading for obstacle avoidance
+          double traj_heading = angle_between_points(x_position, y_position,
+                                                     x_points[lookahead], y_points[lookahead]);
+          double traj_error = traj_heading - yaw;
+          while (traj_error >  M_PI) traj_error -= 2.0 * M_PI;
+          while (traj_error < -M_PI) traj_error += 2.0 * M_PI;
+
+          // Waypoint heading keeps car centered on road (fights left drift)
+          double waypoint_error = waypoint_t - yaw;
+          while (waypoint_error >  M_PI) waypoint_error -= 2.0 * M_PI;
+          while (waypoint_error < -M_PI) waypoint_error += 2.0 * M_PI;
+
+          // 70% trajectory, 30% waypoint - waypoint was pulling left
+          error_steer = 0.7 * traj_error + 0.3 * waypoint_error;
 
           // Compute control to apply
           pid_steer.UpdateError(error_steer);
@@ -330,7 +339,7 @@ int main ()
 
           // Compute error of speed
           double error_throttle;
-          // Use max planned speed, with a minimum of 1.5 m/s to keep car moving
+          // Use max planned speed with minimum floor to keep car moving
           double desired_speed = 0.0;
           for (int j = 0; j < (int)v_points.size(); j++) {
               if (v_points[j] > desired_speed) desired_speed = v_points[j];
@@ -363,7 +372,6 @@ int main ()
           file_throttle  << " " << error_throttle;
           file_throttle  << " " << brake_output;
           file_throttle  << " " << throttle_output << endl;
-
 
           // Send control
           json msgJson;
