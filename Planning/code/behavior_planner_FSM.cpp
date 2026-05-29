@@ -56,7 +56,7 @@ State BehaviorPlannerFSM::get_closest_waypoint_goal(
 
 double BehaviorPlannerFSM::get_look_ahead_distance(const State& ego_state) {
   auto velocity_mag = utils::magnitude(ego_state.velocity);
-  auto accel_mag = utils::magnitude(ego_state.acceleration);
+
 
   // Lookahead distance = distance to stop from current speed using comfortable
   // deceleration: d = v^2 / (2 * a_max)
