@@ -60,7 +60,7 @@ double BehaviorPlannerFSM::get_look_ahead_distance(const State& ego_state) {
 
   // Lookahead distance = distance to stop from current speed using comfortable
   // deceleration: d = v^2 / (2 * a_max)
-  auto look_ahead_distance = (velocity_mag * velocity_mag) / (2.0 * P_DECEL_MAX);
+  auto look_ahead_distance = (velocity_mag * velocity_mag) / (2.0 * _max_accel);
 
   look_ahead_distance =
       std::min(std::max(look_ahead_distance, _lookahead_distance_min),
