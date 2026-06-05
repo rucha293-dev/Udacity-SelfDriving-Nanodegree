@@ -155,7 +155,8 @@ Completing these projects after overcoming debugging challenges and implementati
 * CMake
 * Optimization Algorithms
 * PID Controllers
-
+* Jupyter notebook
+* AWS
 ---
 
 # Challenges Faced
