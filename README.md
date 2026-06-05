@@ -220,5 +220,6 @@ The journey continues 🚀
 # Autonomous Driving Engineer Nanodegree 🚗
 
 <p align="center">
-  <img src="./assets/udacity_nanodegree_certificate.pdf" width="700"/>
+  
+  <img src="[./assets/udacity_nanodegree_certificate.pdf](https://github.com/rucha293-dev/Udacity-SelfDriving-Nanodegree/blob/main/assets/udacity_nanodegree_certificate.pdf)" width="700"/>
 </p>
