@@ -221,5 +221,5 @@ The journey continues 🚀
 
 <p align="center">
   
-  <a hrefc="https://github.com/rucha293-dev/Udacity-SelfDriving-Nanodegree/blob/main/assets/udacity_nanodegree_certificate.pdf" width="700"/>
+  <a hrefc="./assets/udacity_nanodegree_certificate.pdf" width="700"/>
 </p>
