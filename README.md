@@ -219,7 +219,10 @@ Every implementation, debugging session, and optimization challenge contributed 
 The journey continues 🚀
 # Autonomous Driving Engineer Nanodegree 🚗
 
+# Autonomous Driving Engineer Nanodegree 🚗
+
 <p align="center">
-  
-  <a hrefc="./assets/udacity_nanodegree_certificate.pdf" width="700"/>
+  <a href="https://github.com/rucha293-dev/Udacity-SelfDriving-Nanodegree/blob/main/assets/udacity_nanodegree_certificate.pdf">
+    📄 View Certificate PDF
+  </a>
 </p>
