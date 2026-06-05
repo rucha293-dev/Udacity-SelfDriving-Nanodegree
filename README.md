@@ -171,6 +171,18 @@ Some of the biggest challenges during this journey included:
 * Edge case handling
 
 These challenges helped improve problem-solving ability and engineering intuition.
+## Additional Learning Experience
+
+One of the challenging aspects during the program was working with limited cloud and VM lab resources. Because of these limitations, we explored multiple ways to run, debug, and experiment with projects locally on personal computers.
+
+This process helped build a deeper understanding of:
+- Environment setup
+- Dependency management
+- CMake configuration
+- Local simulation workflows
+- Debugging complex autonomous systems outside managed environments
+
+Although challenging at times, solving these issues independently improved problem-solving skills and provided valuable hands-on engineering experience beyond the coursework itself.
 
 ---
 
