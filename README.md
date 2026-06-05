@@ -217,7 +217,7 @@ This repository represents not only completed projects, but also the learning pr
 Every implementation, debugging session, and optimization challenge contributed to building a deeper understanding of how autonomous vehicles think, plan, and operate.
 
 The journey continues 🚀
-# Autonomous Driving Engineer Nanodegree 🚗
+
 
 # Autonomous Driving Engineer Nanodegree 🚗
 
